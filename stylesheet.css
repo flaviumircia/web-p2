@@ -1,18 +1,33 @@
+.container-fluid{
+    padding-left: 0;
+    padding-right: 0;
+}
+body{
+    background-color: #e3deda;
+
+}
 .section_container{
     font-family: "Segoe UI";
-    margin-top: 12%;
+    margin-top: 8%;
+    margin-left: 20px;
     color: white;
     font-weight: bold;
     text-align: center;
+}
+.header{
+    box-shadow: black;
 }
 .ob1{
     height: 200px;
     width: 25%;
     margin-right: 50px;
     border-radius: 25px;
-    background-color: red;
+    background-color: white;
+    color: black;
     text-align: center;
     line-height: 200px;
+
+    box-shadow: 10px 10px 5px  rgba(0,0,0,0.2);
 
 }
 .ob2{
@@ -22,28 +37,42 @@
     text-align: center;
     border-radius: 25px;
     line-height: 200px;
-    background-color: red;
+    color: black;
+    background-color: white;
+    box-shadow: 10px 10px 5px  rgba(0,0,0,0.2);
+
 }
 .ob3{
     height: 200px;
     width: 25%;
     margin-right: 50px;
     border-radius: 25px;
-    background-color: red;
+    background-color: white;
     text-align: center;
+    color: black;
+
     line-height: 200px;
+    box-shadow: 10px 10px 5px  rgba(0,0,0,0.2);
+
 }
 .ob4{
     height: 200px;
     width: 25%;
     margin-right: 50px;
     border-radius: 25px;
-    background-color: red;
+    background-color: white;
     text-align: center;
     line-height: 200px;
+    color: black;
+    box-shadow: 10px 10px 5px  rgba(0,0,0,0.2);
+
+
 }
 .home_text{
     margin-left: auto;
     margin-right: auto;
-    margin-top: 8%;
+    margin-top: 5%;
+}
+.content{
+    background-color: #e3deda;
 }

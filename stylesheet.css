@@ -1,0 +1,49 @@
+.section_container{
+    font-family: "Segoe UI";
+    margin-top: 12%;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+.ob1{
+    height: 200px;
+    width: 25%;
+    margin-right: 50px;
+    border-radius: 25px;
+    background-color: red;
+    text-align: center;
+    line-height: 200px;
+
+}
+.ob2{
+    height: 200px;
+    width: 25%;
+    margin-right: 50px;
+    text-align: center;
+    border-radius: 25px;
+    line-height: 200px;
+    background-color: red;
+}
+.ob3{
+    height: 200px;
+    width: 25%;
+    margin-right: 50px;
+    border-radius: 25px;
+    background-color: red;
+    text-align: center;
+    line-height: 200px;
+}
+.ob4{
+    height: 200px;
+    width: 25%;
+    margin-right: 50px;
+    border-radius: 25px;
+    background-color: red;
+    text-align: center;
+    line-height: 200px;
+}
+.home_text{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8%;
+}

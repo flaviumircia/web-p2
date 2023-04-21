@@ -82,3 +82,12 @@ body{
     background-color: lightblue;
 
 }
+.textFormatAndIndentation{
+    margin-left: 5%;
+    margin-right: 5%;
+    text-indent: 40px;
+    line-height: 20px;
+    font-family: "Segoe UI";
+
+
+}

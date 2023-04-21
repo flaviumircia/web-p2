@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e7cc1c1-3832-4ab7-bef6-0a4baeb3a25b" name="Changes" comment="Update: Added &quot;Mod de implementare&quot; section with the necessary css and sticky navbar">
+    <list default="true" id="5e7cc1c1-3832-4ab7-bef6-0a4baeb3a25b" name="Changes" comment="Update: Changed text placement of navbar &quot;Bibliografie&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website-p2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Website-p2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/stylesheet.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +60,13 @@
       <updated>1680196900273</updated>
       <workItem from="1680196901545" duration="5306000" />
       <workItem from="1680252487556" duration="846000" />
-      <workItem from="1680699015755" duration="659000" />
+      <workItem from="1680699015755" duration="1090000" />
+      <workItem from="1680803031445" duration="24000" />
+      <workItem from="1681304326883" duration="1203000" />
+      <workItem from="1681460557064" duration="99000" />
+      <workItem from="1681755100349" duration="87000" />
+      <workItem from="1681761322710" duration="2000" />
+      <workItem from="1682100038023" duration="2758000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1680196980854</created>
@@ -116,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680699564153</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Update: Changed text placement of navbar &quot;Bibliografie&quot;">
+      <created>1680699689669</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1680699689669</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,6 +169,7 @@
     <MESSAGE value="Update: Changed background; Added drop-shadow to elements;" />
     <MESSAGE value="Update: Added bibliografie.html and hyperlink to it" />
     <MESSAGE value="Update: Added &quot;Mod de implementare&quot; section with the necessary css and sticky navbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update: Added &quot;Mod de implementare&quot; section with the necessary css and sticky navbar" />
+    <MESSAGE value="Update: Changed text placement of navbar &quot;Bibliografie&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update: Changed text placement of navbar &quot;Bibliografie&quot;" />
   </component>
 </project>

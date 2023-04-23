@@ -4,7 +4,10 @@
 }
 body{
     background-color: #e3deda;
-
+}
+* {
+    margin: 0;
+    padding: 0;
 }
 .section_container{
     font-family: "Segoe UI";
@@ -80,6 +83,9 @@ body{
 .mod_implementare{
     margin-top: 10%;
     background-color: lightblue;
+    width: 100%;
+    margin-right: 0px;
+    padding-right: 0px;
 
 }
 .textFormatAndIndentation{
@@ -88,6 +94,19 @@ body{
     text-indent: 40px;
     line-height: 20px;
     font-family: "Segoe UI";
-
-
+}
+.descriere_hardware{
+    background-color: #5e7b81;
+    padding-bottom: 30px;
+    color: white;
+    font-family: "Segoe UI";
+}
+h1{
+    font-family: "Segoe UI Semibold";
+}
+p{
+    font-family: "Segoe UI Light";
+}
+h5{
+    font-family: "Segoe UI Semibold";
 }

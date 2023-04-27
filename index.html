@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Home</title>
+</head>
+<body >
+<div class="container-fluid">
+    <div class="navbar sticky-top row shadow p-3 mb-5 bg-white rounded">
+        <div class="col-md-2 text-right">
+            <a href="index.html"> Pagina principala</a>
+        </div>
+        <div class="col-md-8 text-center">
+            <a href="bibliografie.html">Bibliografie</a>
+        </div>
+        </div>
+    <div class="content">
+        <div class="row">
+            <h1 class="home_text">
+                Sectiuni
+            </h1>
+        </div>
+        <div class="row section_container">
+            <div class="col-sm ob1">
+                <a href="#implementare">Mod de implementare</a>
+            </div>
+            <div class="col-sm ob2">
+                <a href="#descriere Hardware">Descriere Hardware</a>
+            </div>
+            <div class="col-sm ob3">
+                Descriere Software
+            </div>
+            <div class="col-sm ob4">
+                Rezultate si concluzii
+            </div>
+        </div>
+    </div>
+    <div id="implementare" class="mod_implementare">
+        <div class="row">
+            <h1 class="home_text">
+                Mod de implementare
+            </h1>
+        </div>
+        <div class="row">
+            <div class="col-sm" style="margin-top: 60px;">
+                <p class="textFormatAndIndentation">
+                    În cadrul acestui proiect ne dorim să realizăm un boloboc electronic (dispozitiv care ne arată dacă o suprafață este plană). Acesta va fi realizat cu ajutorul unui microcontroller, a unui accelerometru și giroscop cu 3 axe și a unor LED-uri care au rolul de a indica gradul de înclinare a unei suprafețe, simulând bula de aer a unui boloboc.
+                </p>
+                    <p class="textFormatAndIndentation">
+                        Vom utiliza un accelerometru și giroscop cu 3 axe MPU6050, achiziționat de pe site-ul Optimus Digital, acesta fiind necesar pentru a detecta mișcarea și pentru a verifica orizontalitatea unei piese, unghiul de înclinare al acesteia. Acest accelerometru este potrivit pentru proiectul nostru, deoarece are o tensiune de alimentare cuprinsă între 3,3V-5V și are un regulator de tensiune inclus pentru a putea lucra în acest range. Conține un ADC încorporat pe 16 biți care ne oferă o precizie ridicată.
+                    </p>
+                    <p class="textFormatAndIndentation">
+                        Senzorul de acceleratie este un instrument important pentru masurarea si monitorizarea miscarii si a acceleratiei, fiind utilizat intr-o gama larga de aplicatii si industrii. Rolul lor principal este de a detecta schimbarile de viteza sau de miscare ale unui obiect in spatiu, iar in cadrul proiectului nostru suntem interesati de pozitia unui obiect, deci de miscarea acestuia.
+                    </p>
+                <p class="textFormatAndIndentation">
+                    De la acest modul am conectat pinii de Vcc la pinul Avcc al procesorului, la fel GND, SDA la pinul PC1, iar SCL la PC0.
+                </p>
+                <p class="textFormatAndIndentation">
+                    SDA (Serial Data) și SCL (Serial Clock) sunt două dintre porturile de comunicație I2C utilizate de MPU6050. Acestea permit transmiterea de date între MPU6050 și alte dispozitive I2C, cum ar fi microcontrolerele, senzorii sau alte dispozitive periferice.
+                </p>
+                <p class="textFormatAndIndentation">
+                    SDA este portul de date seriale, care transferă datele între MPU6050 și alte dispozitive I2C. SCL este portul de ceas serial, care furnizează semnale de sincronizare pentru transferul de date între dispozitive.
+                </p>
+                <p class="textFormatAndIndentation">
+                    În timpul comunicării I2C, MPU6050 acționează ca un dispozitiv sclav, permițând altor dispozitive să inițieze și să controleze transferul de date. Porturile SDA și SCL sunt utilizate de dispozitivele master pentru a transmite și a primi date, prin schimbarea stării acestora între nivelurile HIGH și LOW, conform specificațiilor de protocol I2C.
+                </p>
+                </div>
+                <div class="col-sm" style="margin: auto;margin-top: 5% ;margin-left: 10%;">
+                    <img  style="scale: 120%;" src="resources/images/modul_mpu6050.png" alt="Imagine Modul MPU 6050">
+                    <p style="text-align: center;margin-top: 20px;margin-left: -20%;">Modulul MPU 6050</p>
+                    <img  style="margin-top:5%;margin-left: -5%;" src="resources/images/schema_bloc_modul.png" alt="Schema bloc a modulului">
+                    <p style="text-align: center;margin-left: -10%">Schema bloc internă a accelerometrului si giroscop MPU6050</p>
+                </div>
+        </div>
+        <hr style="margin-top: 5%;">
+        <div class="row" style="background-color: #4f8a75;color: white">
+            <div class="col-sm" style="margin-left:5%;margin-bottom:50px;margin-right: 5%;margin-top: 10%;">
+                <img  style="margin-top:10%;" src="resources/images/schema_bloc.png" alt="Schema bloc">
+                <p style="text-align: center;margin-left: 10%">Schema Bloc a modului de functionare</p>
+
+            </div>
+            <div class="col-sm" style="margin: auto ;margin-right: 10%;margin-bottom: 10%;margin-top: 5%;">
+                <h3 class="textFormatAndIndentation" style="text-align: center">
+                    Cum va funcționa proiectul?
+                </h3>
+                <div style="margin-top: 40px;">
+                    <p class="textFormatAndIndentation">
+                        Valorile intoarse de accelerometru sunt prelucrate de catre ATMega16 pentru a obtine unghiul de inclinare. Pe baza unghiului calculat de accelerometru se aprind convenabil cele 7 LED-uri, simuland bula de aer dintr-un boloboc mecanic.                    </p>
+                    <p class="textFormatAndIndentation">
+                        Semnalul nu va fi citit prin intermediul ADC-ului (Analog-to-Digital Converter) al AVR Atmega164A, ci se vor folosi pinii SDA si SCL impreuna cu Protocolul de comunicare I2C (Inter-Integrated Circuit) al microcontrollerului. Datele de iesire din cele 2 porturi (SDA si SCL) sunt deja in format digital, nemaiavand nevoie de procesul de conversie al unui ADC.
+
+                    </p>
+                    <p class="textFormatAndIndentation">
+                        De la acest modul am conectat pinii de Vcc la pinul Avcc al procesorului, la fel GND, SDA la pinul PC1, iar SCL la PC0.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="descriere Hardware" class="descriere_hardware">
+            <div class="row" >
+                <h1 class="home_text">
+                    Descriere Hardware
+                </h1>
+            </div>
+        <div class="row" style="margin-top: 5%">
+            <div class="col-sm-2" style="margin: auto;text-align: center;">
+                <p style="font-size: larger">Numarul Etapei</p>
+            </div>
+            <div class="col-sm"></div>
+            <div class="col-sm" style="margin-top: 40px">
+
+            </div>
+        </div>
+            <div class="row" style="margin-top: 5%">
+                <div class="col-sm-2" style="margin: auto;text-align: center;">
+                    1: Etapa Initiala
+                </div>
+                <div class="col-sm">
+                    <img style="width: 50%;height: auto" src="resources/images/board_stages/1.jpeg" alt="Placuta in stadiul initial"/>
+                </div>
+                <div class="col-sm" style="margin-top: 40px">
+                    <p>
+                        Placuta cu componentele initiale lipite.
+                    </p>
+                </div>
+            </div>
+        <hr>
+            <div class="row" style="margin-top: 10%">
+                <div class="col-sm-2" style="margin: auto;text-align: center;">
+                    2: Etapa comuna
+                </div>
+                <div class="col-sm">
+                    <img style="width: 50%;height: auto" src="resources/images/board_stages/2.jpeg" alt="Placuta in stadiul 2"/>
+                </div>
+                <div class="col-sm" style="margin-top: 40px">
+                    Placuta cu divizorul rezistiv lipit.</br>
+                    Am ales o rezistenta de R1=83Ω si inca una de R2=1kΩ. Rezultand un K=R1/(R1+R2)=0.07=7%.
+                    Divizorul rezistiv este alimentat de la VCC din pinul 31 al AVR Atmega 164A, iar masa este pusa pe portul 32. De asemenea, conform cerintei din etapa 2 divizorul este pus pe pinul PA4.
+                </div>
+            </div>
+        <hr>
+
+            <div class="row" style="margin-top: 10%">
+                <div class="col-sm-2" style="margin: auto;text-align: center;">
+                    3: Etapa avansata
+                </div>
+                <div class="col-sm">
+                    <img style="width: 85%;height: auto" src="resources/images/board_stages/3.jpeg" alt="Placuta in stadiul 3"/>
+                </div>
+                <div class="col-sm">
+                    <img style="width: 85%;height: auto" src="resources/images/board_stages/3_back.jpeg" alt="Placuta in stadiul 3 spate"/>
+
+                </div>
+                <div class="col-sm">
+                    <div class="col-sm" style="margin-top: 40px">
+                        Placuta cu cele 7 LED-uri necesare, impreuna cu lipiturile de pe spate.</br>
+                        Fiecarui LED  i se asociaza un bit de pe portul B (am ales sa folosim 7 LED-uri inloc de 8 pentru a putea aprinde un singur LED in mijloc atunci cand este detectata o suprafata plana, astfel simuland bula unui boloboc). Am limitat curentul prin LED-uri la aproximativ 15mA folosind rezistoarele R1-R8 cu valoare de 220Ω si o toleranta de +/- 1%, utilizand formula:
+                        R = (Vcc-VLED)/ILED => R = (5V-2V)/15mA => R = 200 Ω
+                    </div>
+                </div>
+            </div>
+                <hr>
+
+            <div class="row" style="margin-top: 10%">
+                <div class="col-sm-2" style="margin: auto;text-align: center;">
+                    4: Etapa finala
+                </div>
+                <div class="col-sm">
+                    <img style="width: 85%;height: auto" src="resources/images/board_stages/4.jpeg" alt="Placuta in stadiul 4"/>
+                </div>
+                <div class="col-sm">
+                    <img style="width: 85%;height: auto" src="resources/images/board_stages/4_back.jpeg" alt="Placuta in stadiul 4 spate"/>
+
+                </div>
+                <div class="col-sm">
+                    <div class="col-sm" style="margin-top: 40px">
+                        Placuta cu accelerometrul lipit. Stadiul final. </br>
+                        In etapa 4, cea finala, am lipit accelerometrul MPU-6050, care foloseste port-urile SDA/SCL nemaiavand nevoie de un ADC, conversia analog-digitala realizandu-se in interiorul accelerometrului.
+                        De asemenea, am incercat sa pastram o pozitie cat mai paralela a accelerometrului fata de placa pentru a avea o acuratete mai mare (respectiv pentru un offset mai mic in codul de calibrare).
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="row" style="margin-top: 50px;padding-left: 40px;padding-right: 40px;">
+                <h5>Bill of Materials (BOM)</h5>
+                <table>
+                    <tr>
+                        <td>Cantitate</td>
+                        <td>Ref</td>
+                        <td>Valoare</td>
+                        <td>Capsula</td>
+                        <td>Obs</td>
+                        <td>Furnizor, cod produs</td>
+                        <td>Pret unitar(lei)</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>R1</td>
+                        <td>10k</td>
+                        <td>0805</td>
+                        <td></td>
+                        <td>UPB</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>R2</td>
+                        <td>470</td>
+                        <td>0805</td>
+                        <td></td>
+                        <td>UPB</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>C1</td>
+                        <td>1uF</td>
+                        <td>THT</td>
+                        <td></td>
+                        <td>UPB</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>C2, C3</td>
+                        <td>18pF</td>
+                        <td>0805</td>
+                        <td></td>
+                        <td>UPB</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>C5, C6, C11, C12, C13</td>
+                        <td>100nF</td>
+                        <td>0805</td>
+                        <td></td>
+                        <td>UPB</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>D2</td>
+                        <td>LED</td>
+                        <td>THT</td>
+                        <td></td>
+                        <td>UPB</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>SW1, SW2</td>
+                        <td>Switch</td>
+                        <td>THT</td>
+                        <td></td>
+                        <td>UPB</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>J1</td>
+                        <td>CON3</td>
+                        <td>THT3x100mils</td>
+                        <td>Jumper 3 pini</td>
+                        <td>UPB</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td></td>
+                        <td>soclu DIP40</td>
+                        <td>THT</td>
+                        <td>pentru U1</td>
+                        <td>UPB</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>U1</td>
+                        <td>ATMega164A</td>
+                        <td>DIP40</td>
+                        <td>pe soclu</td>
+                        <td>UPB</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>CN2</td>
+                        <td>conector</td>
+                        <td></td>
+                        <td>pentru TTL-USB</td>
+                        <td>UPB</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>X1</td>
+                        <td>cristal de cuart</td>
+                        <td>THT</td>
+                        <td></td>
+                        <td>UPB</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td></td>
+                        <td>TTL-USB</td>
+                        <td></td>
+                        <td></td>
+                        <td>https://www.optimusdigital.ro/ro/interfata-convertoare-usb-la-serial/144-modul-convertor-usb-la-serial-pl2303.html</td>
+                        <td>7.99</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>U1</td>
+                        <td>accelerometru si giroscop cu 3 axe</td>
+                        <td>THT</td>
+                        <td></td>
+                        <td>https://www.optimusdigital.ro/ro/senzori-senzori-inertiali/96-modul-senzor-triaxial-mpu-6050.html</td>
+                        <td>15.49</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>D1-D8</td>
+                        <td>LED</td>
+                        <td>THT</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Rx1</td>
+                        <td>82</td>
+                        <td>THT</td>
+                        <td>Rezistenta folosita pentru divizorul de tensiune</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Rx2</td>
+                        <td>1k</td>
+                        <td>THT</td>
+                        <td>Rezistenta folosita pentru divizorul de tensiune</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>R1-R7</td>
+                        <td>220</td>
+                        <td>THT</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td></td>
+                        <td>conectoare mama-tata</td>
+                        <td></td>
+                        <td>pentru conectare TTL-USB</td>
+                        <td>https://www.emag.ro/set-10-fire-dupont-mama-tata-30-cm-cl95/pd/D4J66JBBM/?utm_campaign=share_product&amp;utm_source=mobile_dynamic_share&amp;utm_medium=android</td>
+                        <td>2.85</td>
+                    </tr>
+                </table>
+
+            </div>
+        <hr>
+    </div>
+</div>
+
+</body>
+</html>

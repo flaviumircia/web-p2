@@ -1,24 +1,33 @@
+
+
 .container-fluid{
     padding-left: 0;
     padding-right: 0;
 }
 body{
-    background-color: #e3deda;
+    background-color: #00083F;
 }
 * {
     margin: 0;
     padding: 0;
 }
+
 .section_container{
-    font-family: "Segoe UI";
-    margin-top: 8%;
+    font-family: "Segoe UI", serif;
+    margin-top: 4%;
     margin-left: 20px;
+    margin-bottom: 3%;
     color: white;
     font-weight: bold;
     text-align: center;
 }
 .header{
     box-shadow: black;
+}
+.logo{
+    margin-left: 20px;
+    height:45px;
+    width: auto;
 }
 .ob1{
     height: 200px;
@@ -75,14 +84,20 @@ body{
     margin-left: auto;
     margin-right: auto;
     margin-top: 5%;
+    font-family: led_display, serif;
+    font-size: xxx-large;
 }
 .content{
-    background-color: #e3deda;
+    background: url("resources/images/background.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .mod_implementare{
     margin-top: 10%;
-    background-color: lightblue;
+    background-color: white;
     width: 100%;
     margin-right: 0px;
     padding-right: 0px;

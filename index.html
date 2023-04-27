@@ -4,23 +4,30 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="fonts_style.css">
     <title>Home</title>
 </head>
 <body >
 <div class="container-fluid">
-    <div class="navbar sticky-top row shadow p-3 mb-5 bg-white rounded">
-        <div class="col-md-2 text-right">
-            <a href="index.html"> Pagina principala</a>
+    <div class="navbar sticky-top row shadow p-3 bg-white rounded">
+        <div class="col-md">
+            <a href="index.html"><img class="logo" src="resources/images/board_stages/logo_rev.png"/></a>
+            <a href="index.html" style="padding-right: 20px;font-family: 'Segoe UI',serif;color: #00083F;"> Home</a>
         </div>
-        <div class="col-md-8 text-center">
-            <a href="bibliografie.html">Bibliografie</a>
+        <div class="col-md text-right" >
+            <a href="index.html" style="padding-right: 20px;font-family: 'Segoe UI',serif;"> Pagina principala</a>
+            <a href="bibliografie.html" style="padding-right: 20px;font-family: 'Segoe UI',Serif;">Bibliografie</a>
         </div>
-        </div>
-    <div class="content">
+    </div>
+    <div class="content" style="color: white;">
         <div class="row">
             <h1 class="home_text">
-                Sectiuni
+                Nivela cu bula cu afisaj pe 7 LED-uri
             </h1>
+        </div>
+        <div class="row">
+            <h3 style="margin-left: auto;margin-right: auto;margin-top: 20px;font-family:led_display, serif;font-size: xx-large;">
+                Sectiunile Proiectului</h3>
         </div>
         <div class="row section_container">
             <div class="col-sm ob1">
@@ -44,7 +51,7 @@
             </h1>
         </div>
         <div class="row">
-            <div class="col-sm" style="margin-top: 60px;">
+            <div class="col-sm" style="margin-top: 60px;color: black;">
                 <p class="textFormatAndIndentation">
                     În cadrul acestui proiect ne dorim să realizăm un boloboc electronic (dispozitiv care ne arată dacă o suprafață este plană). Acesta va fi realizat cu ajutorul unui microcontroller, a unui accelerometru și giroscop cu 3 axe și a unor LED-uri care au rolul de a indica gradul de înclinare a unei suprafețe, simulând bula de aer a unui boloboc.
                 </p>

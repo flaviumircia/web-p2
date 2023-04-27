@@ -111,7 +111,7 @@ body{
     font-family: "Segoe UI";
 }
 .descriere_hardware{
-    background-color: #5e7b81 !important;
+    background-color: #00083F !important;
     padding-bottom: 30px;
     color: white;
     font-family: "Segoe UI";
@@ -129,3 +129,5 @@ table, th, td {
     text-align: center;
     border: 1px solid white;
 }
+
+

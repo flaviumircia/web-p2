@@ -130,4 +130,13 @@ table, th, td {
     border: 1px solid white;
 }
 
+.descriere_software{
+    background-color: white;
+    color: black;
 
+}
+
+.pasi{
+    margin-left: 5%;
+    margin-right: 5%;
+}

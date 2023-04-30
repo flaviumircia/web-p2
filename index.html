@@ -39,7 +39,7 @@
                 <a href="#descriere Hardware">Descriere Hardware</a>
             </div>
             <div class="col-sm ob3">
-                Descriere Software
+                <a href="#Descriere Software">Descriere Software</a>
             </div>
             <div class="col-sm ob4">
                 Rezultate si concluzii
@@ -393,6 +393,41 @@
 
             </div>
         <hr>
+    </div>
+    <div id="Descriere Software" class="descriere_software">
+        <div class="row" >
+            <h1 class="home_text">
+                Descriere Software
+            </h1>
+        </div>
+        <div class="row" style="margin-top: 40px;">
+            <p class="textFormatAndIndentation">
+                Dupa cum este descris, anterior, modul de functionare al MPU-6050 se bazeaza pe pinii SDA/SCL, dar si pe protocolul I2C/TWI. In acest sens, Pinii de tipul PCx sunt toti in modul Input, cei de tipul PBx (cu x=[0,6]) sunt in modul OUT (pentru a scoate tensiunea necesara aprinderii LED-urilor), cei de tipul PAx sunt nefolositi si lasati in mod default IN, la fel ca cei de tipul PDx, mai putin PD6 care e pinul LED-ului D2, fiind folosit ca un check pentru alimentarea placii.            <p class="textFormatAndIndentation">
+                De asemenea, pentru a putea calibra accelerometrul avem nevoie de datele “brute” furnizate de pe pinul SDA, rezultand in pornirea USART0 pentru transmisia/receptia datelor.
+            </p>
+            <p class="textFormatAndIndentation">
+                Pentru ca microcontroller-ul sa functioneze optim, am setat o frecventa de 96 KHz pe TWI reprezentand frecventa de ceas la care o sa lucreze SCL-ul si implicit accelerometrul.
+            </p>
+            <p class="textFormatAndIndentation">
+                Un detaliu mic, dar foarte important este pinul AD0 de pe MPU-6050, care reprezinta modul de a seta adresa la care este gasit accelerometrul ( legat la GND: 0x68, legat la VCC:0x69, nelegat: comportament indefinit), astfel pe placa a fost legat la Masa, iar in cod a fost setat valoarea 0x68 pentru adresa accelerometrului.
+            </p>
+            <p class="textFormatAndIndentation">
+                In continuare, s-a construit un array de 6 bytes de tipul “unsigned char” pentru a putea salva datele brute de la MPU-6050 pe axele de coordonate: X, Y si Z. Accelerometrul fiind intors la 90 de grade pe axa orizontala rezulta intr-o shiftare de interes a axelor (in loc sa folosim axa X, vom folosi axa Y). Concatenam 2x8 biti pentru fiecare axa intr-o variabila de tip short, dupa care doar axa Y va fi prelucrata pentru calibrare.
+            </p>
+            <p class="pasi" style="font-family: 'Segoe UI'">
+                Calibrarea accelerometrului este facuta in modul urmator:
+            </p>
+            <ol class="pasi">
+                <li class="pasi">Citim datele brute de pe seriala, care variaza intre ~[-17 000; 17 000]</li>
+                <li class="pasi">Impartim aceste date la 1000, deoarece nu avem nevoie de o precizie atat de fina</li>
+                <li class="pasi">Adunam un OFFSET de 17 pentru a lucra doar cu valori fara semn (unsigned).</li>
+                <li class="pasi">Impartim acest interval nou format ( [0,34]) in 7 parti egale, fiecare parte reprezentand un LED de iesire</li>
+                <li class="pasi">Aprindem/stingem in mod secvential fiecare LED in functie de valoarea intervalului
+                    Ex: Daca y_axis =[0,5] vom aprinde primul led (care in ordinea pinilor este ultimul) adica PORTB.6, daca y_axis=[6,10] vom stinge LED-ul aprins anterior si vom aprinde urmatorul LED, adica PORTB.5 s.a.m.d
+                </li>
+            </ol>
+            <p class="textFormatAndIndentation">* Pentru a nu avea un efect de flickering asupra trecerii de pe un LED pe altul, datorata fluctuarii bruste intre doua valori ce delimiteaza capetele intervalului (Ex: 5 si 6; 6 si 5; 5 si 6; 6 si 5; etc), vom face aceasta trecere abia dupa ce avem 5 valori citite de pe seriala (oferind un efect de delay asupra schimbarii LED-ului curent, dar insesizabil ochiului uman).</p>
+        </div>
     </div>
 </div>
 

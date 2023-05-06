@@ -96,14 +96,12 @@
                 </h3>
                 <div style="margin-top: 40px;">
                     <p class="textFormatAndIndentation">
-                        Valorile intoarse de accelerometru sunt prelucrate de catre ATMega16 pentru a obtine unghiul de inclinare. Pe baza unghiului calculat de accelerometru se aprind convenabil cele 7 LED-uri, simuland bula de aer dintr-un boloboc mecanic.                    </p>
+                        Valorile intoarse de accelerometru sunt prelucrate de catre ATMega164A pentru a obtine unghiul de inclinare. Pe baza unghiului calculat de accelerometru se aprind convenabil cele 7 LED-uri, simuland bula de aer dintr-un boloboc mecanic.                    </p>
                     <p class="textFormatAndIndentation">
                         Semnalul nu va fi citit prin intermediul ADC-ului (Analog-to-Digital Converter) al AVR Atmega164A, ci se vor folosi pinii SDA si SCL impreuna cu Protocolul de comunicare I2C (Inter-Integrated Circuit) al microcontrollerului. Datele de iesire din cele 2 porturi (SDA si SCL) sunt deja in format digital, nemaiavand nevoie de procesul de conversie al unui ADC.
 
                     </p>
-                    <p class="textFormatAndIndentation">
-                        De la acest modul am conectat pinii de Vcc la pinul Avcc al procesorului, la fel GND, SDA la pinul PC1, iar SCL la PC0.
-                    </p>
+
 
                 </div>
 
@@ -409,10 +407,10 @@
                 Pentru ca microcontroller-ul sa functioneze optim, am setat o frecventa de 96 KHz pe TWI reprezentand frecventa de ceas la care o sa lucreze SCL-ul si implicit accelerometrul.
             </p>
             <p class="textFormatAndIndentation">
-                Un detaliu mic, dar foarte important este pinul AD0 de pe MPU-6050, care reprezinta modul de a seta adresa la care este gasit accelerometrul ( legat la GND: 0x68, legat la VCC:0x69, nelegat: comportament indefinit), astfel pe placa a fost legat la Masa, iar in cod a fost setat valoarea 0x68 pentru adresa accelerometrului.
+                Un detaliu mic, dar foarte important este pinul AD0 de pe MPU-6050, care reprezinta modul de a seta adresa la care este gasit accelerometrul ( legat la GND: 0x68, legat la VCC:0x69, nelegat: comportament nedefinit), astfel pe placa a fost legat la Masa, iar in cod a fost setat valoarea 0x68 pentru adresa accelerometrului.
             </p>
             <p class="textFormatAndIndentation">
-                In continuare, s-a construit un array de 6 bytes de tipul “unsigned char” pentru a putea salva datele brute de la MPU-6050 pe axele de coordonate: X, Y si Z. Accelerometrul fiind intors la 90 de grade pe axa orizontala rezulta intr-o shiftare de interes a axelor (in loc sa folosim axa X, vom folosi axa Y). Concatenam 2x8 biti pentru fiecare axa intr-o variabila de tip short, dupa care doar axa Y va fi prelucrata pentru calibrare.
+                In continuare, s-a construit un array de 6 bytes de tipul “unsigned char” pentru a putea salva datele brute de la MPU-6050 pe axele de coordonate: X, Y si Z. Accelerometrul fiind intors la 90 de grade pe axa orizontala rezulta folosirea axei Y. Concatenam 2x8 biti pentru fiecare axa intr-o variabila de tip short, dupa care doar axa Y va fi prelucrata pentru calibrare.
             </p>
             <p class="pasi" style="font-family: 'Segoe UI'">
                 Calibrarea accelerometrului este facuta in modul urmator:
@@ -421,12 +419,26 @@
                 <li class="pasi">Citim datele brute de pe seriala, care variaza intre ~[-17 000; 17 000]</li>
                 <li class="pasi">Impartim aceste date la 1000, deoarece nu avem nevoie de o precizie atat de fina</li>
                 <li class="pasi">Adunam un OFFSET de 17 pentru a lucra doar cu valori fara semn (unsigned).</li>
-                <li class="pasi">Impartim acest interval nou format ( [0,34]) in 7 parti egale, fiecare parte reprezentand un LED de iesire</li>
+                <li class="pasi">Impartim acest interval, nou format [0,34], in 7 parti egale, fiecare parte reprezentand un LED de iesire</li>
                 <li class="pasi">Aprindem/stingem in mod secvential fiecare LED in functie de valoarea intervalului
                     Ex: Daca y_axis =[0,5] vom aprinde primul led (care in ordinea pinilor este ultimul) adica PORTB.6, daca y_axis=[6,10] vom stinge LED-ul aprins anterior si vom aprinde urmatorul LED, adica PORTB.5 s.a.m.d
                 </li>
             </ol>
-            <p class="textFormatAndIndentation">* Pentru a nu avea un efect de flickering asupra trecerii de pe un LED pe altul, datorata fluctuarii bruste intre doua valori ce delimiteaza capetele intervalului (Ex: 5 si 6; 6 si 5; 5 si 6; 6 si 5; etc), vom face aceasta trecere abia dupa ce avem 5 valori citite de pe seriala (oferind un efect de delay asupra schimbarii LED-ului curent, dar insesizabil ochiului uman).</p>
+            <p class="textFormatAndIndentation">* Pentru a nu avea un efect de flickering, la trecerea de pe un LED pe altul, datorat fluctuarii bruste intre doua valori ce delimiteaza capetele intervalului (Ex: 5 si 6; 6 si 5; 5 si 6; 6 si 5; etc), vom face aceasta trecere abia dupa ce avem 5 valori citite de pe seriala (oferind un efect de delay asupra schimbarii LED-ului curent, dar insesizabil ochiului uman).</p>
+            <div class="row" style="margin-bottom: 30px;">
+                    <img src="resources/images/flow_chart.png" style=";margin-left: 20%;margin-right: auto; height: 500px;width: auto;"/>
+                    <p style="text-align: center;padding-left: 150px;margin-right: auto;margin-left: auto;margin-top: 20px;">Organigrama algoritmul in starea finala a proiectului</p>
+
+            </div>
+
+        </div>
+        <div class="row descriere_hardware" style="padding-top: 50px">
+            <div class="col-md-4">
+                <img src="resources/images/memory.png" style="margin-left: 200px;height: 500px;width: auto;"/>
+            </div>
+            <div class="col-md-6">
+                <p class="textFormatAndIndentation" style="text-align: justify;;margin-top: 20%;">In imaginea din stanga putem vedea cata memorie Flash, RAM, dar si EPROM consuma programul in stadiul final</p>
+            </div>
         </div>
     </div>
 </div>

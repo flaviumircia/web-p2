@@ -133,10 +133,16 @@ table, th, td {
 .descriere_software{
     background-color: white;
     color: black;
+    padding-bottom: 150px;
 
 }
 
 .pasi{
     margin-left: 5%;
     margin-right: 5%;
+}
+.rez_concluzii{
+    background-color: #00083F;
+    color: white;
+    padding-left: 50px;
 }

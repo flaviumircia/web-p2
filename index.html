@@ -12,9 +12,9 @@
 <div class="container-fluids">
     <div class="navbar sticky-top row shadow p-3 bg-white rounded">
         <div class="col-md">
-            <a href="index.html"><img class="logo" src="resources/images/board_stages/logo_rev.png"/></a>
+            <a href="index.html"><img class="logo" alt="logo" src="resources/images/board_stages/logo_rev.png"/></a>
             <a href="index.html" style="padding-right: 20px;font-family: 'Segoe UI',serif;color: #00083F;"> Home</a>
-            <a href="bibliografie.html"><img src="resources/images/icons/books.png" style="height:45px;width: auto;"/></a>
+            <a href="bibliografie.html"><img src="resources/images/icons/books.png" alt="Bibliografie Logo" style="height:45px;width: auto;"/></a>
             <a href="bibliografie.html" style="padding-right: 20px;font-family: 'Segoe UI',Serif;color: #00083F">Bibliografie</a>
         </div>
         <div class="col-md text-right">
@@ -138,7 +138,7 @@
                     1: Etapa Initiala
                 </div>
                 <div class="col-sm">
-                    <img style="width: 50%;height: auto" src="resources/images/board_stages/1.jpeg" alt="Placuta in stadiul initial"/>
+                    <img class="rounded" style="width: 50%;height: auto" src="resources/images/board_stages/1.jpeg" alt="Placuta in stadiul initial"/>
                 </div>
                 <div class="col-sm" style="margin-top: 40px">
                     <p>
@@ -152,10 +152,10 @@
                     2: Etapa comuna
                 </div>
                 <div class="col-sm">
-                    <img style="width: 50%;height: auto" src="resources/images/board_stages/2.jpeg" alt="Placuta in stadiul 2"/>
+                    <img class="rounded" style="width: 50%;height: auto" src="resources/images/board_stages/2.jpeg" alt="Placuta in stadiul 2"/>
                 </div>
                 <div class="col-sm" style="margin-top: 40px">
-                    Placuta cu divizorul rezistiv lipit.</br>
+                    Placuta cu divizorul rezistiv lipit.<br>
                     Am ales o rezistenta de R1=83Ω si inca una de R2=1kΩ. Rezultand un K=R1/(R1+R2)=0.07=7%.
                     Divizorul rezistiv este alimentat de la VCC din pinul 31 al AVR Atmega 164A, iar masa este pusa pe portul 32. De asemenea, conform cerintei din etapa 2 divizorul este pus pe pinul PA4.
                 </div>
@@ -167,15 +167,15 @@
                     3: Etapa avansata
                 </div>
                 <div class="col-sm">
-                    <img style="width: 85%;height: auto" src="resources/images/board_stages/3.jpeg" alt="Placuta in stadiul 3"/>
+                    <img class="rounded" style="width: 85%;height: auto" src="resources/images/board_stages/3.jpeg" alt="Placuta in stadiul 3"/>
                 </div>
                 <div class="col-sm">
-                    <img style="width: 85%;height: auto" src="resources/images/board_stages/3_back.jpeg" alt="Placuta in stadiul 3 spate"/>
+                    <img class="rounded" style="width: 85%;height: auto" src="resources/images/board_stages/3_back.jpeg" alt="Placuta in stadiul 3 spate"/>
 
                 </div>
                 <div class="col-sm">
                     <div class="col-sm" style="margin-top: 40px">
-                        Placuta cu cele 7 LED-uri necesare, impreuna cu lipiturile de pe spate.</br>
+                        Placuta cu cele 7 LED-uri necesare, impreuna cu lipiturile de pe spate.<br>
                         Fiecarui LED  i se asociaza un bit de pe portul B (am ales sa folosim 7 LED-uri inloc de 8 pentru a putea aprinde un singur LED in mijloc atunci cand este detectata o suprafata plana, astfel simuland bula unui boloboc). Am limitat curentul prin LED-uri la aproximativ 15mA folosind rezistoarele R1-R8 cu valoare de 220Ω si o toleranta de +/- 1%, utilizand formula:
                         R = (Vcc-VLED)/ILED => R = (5V-2V)/15mA => R = 200 Ω
                     </div>
@@ -188,15 +188,15 @@
                     4: Etapa finala
                 </div>
                 <div class="col-sm">
-                    <img style="width: 85%;height: auto" src="resources/images/board_stages/4.jpeg" alt="Placuta in stadiul 4"/>
+                    <img class="rounded" style="width: 85%;height: auto" src="resources/images/board_stages/4.jpeg" alt="Placuta in stadiul 4"/>
                 </div>
                 <div class="col-sm">
-                    <img style="width: 85%;height: auto" src="resources/images/board_stages/4_back.jpeg" alt="Placuta in stadiul 4 spate"/>
+                    <img class="rounded" style="width: 85%;height: auto" src="resources/images/board_stages/4_back.jpeg" alt="Placuta in stadiul 4 spate"/>
 
                 </div>
                 <div class="col-sm">
                     <div class="col-sm" style="margin-top: 40px">
-                        Placuta cu accelerometrul lipit. Stadiul final. </br>
+                        Placuta cu accelerometrul lipit. Stadiul final. <br>
                         In etapa 4, cea finala, am lipit accelerometrul MPU-6050, care foloseste port-urile SDA/SCL nemaiavand nevoie de un ADC, conversia analog-digitala realizandu-se in interiorul accelerometrului.
                         De asemenea, am incercat sa pastram o pozitie cat mai paralela a accelerometrului fata de placa pentru a avea o acuratete mai mare (respectiv pentru un offset mai mic in codul de calibrare).
 
@@ -390,6 +390,14 @@
                 </table>
 
             </div>
+            <div class="row" style="margin-top: 50px;padding-left: 40px;padding-right: 40px;">
+                <h5>Schema Electrica </h5>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                    <img class="rounded mx-auto d-block" src="resources/images/electrical_scheme.png" alt="Schema Electrica" style="height: 500px;width: auto;"/>
+                </div>
+            </div>
         <hr>
     </div>
     <div id="Descriere Software" class="descriere_software">
@@ -426,30 +434,22 @@
             </ol>
             <p class="textFormatAndIndentation">* Pentru a nu avea un efect de flickering, la trecerea de pe un LED pe altul, datorat fluctuarii bruste intre doua valori ce delimiteaza capetele intervalului (Ex: 5 si 6; 6 si 5; 5 si 6; 6 si 5; etc), vom face aceasta trecere abia dupa ce avem 5 valori citite de pe seriala (oferind un efect de delay asupra schimbarii LED-ului curent, dar insesizabil ochiului uman).</p>
             <div class="row" style="margin-bottom: 30px;margin-top: 50px;">
-                    <img src="resources/images/flow_chart.png" style=";margin-left: 20%;margin-right: auto; height: 500px;width: auto;"/>
-                    <p style="text-align: center;padding-left: 150px;margin-right: auto;margin-left: auto;margin-top: 20px;">Organigrama algoritmul in starea finala a proiectului</p>
+                    <img src="resources/images/flow_chart.png"  alt="Organigrama" style=";margin-left: 20%;margin-right: auto; height: 500px;width: auto;"/>
+                    <p style="text-align: center;padding-left: 150px;margin-right: auto;margin-left: auto;margin-top: 20px;">Organigrama algoritmului in starea finala a proiectului</p>
 
             </div>
             <div class="row" style="padding-top: 50px">
                 <div class="col-md">
-                    <img src="resources/images/memory.png" style="margin-left: 200px;height: 500px;width: auto;"/>
+                    <img src="resources/images/memory.png" alt="Ocupare Memorie" style="margin-left: 200px;height: 500px;width: auto;"/>
                 </div>
                 <div class="col-md">
                     <p class="textFormatAndIndentation" style="text-align: justify;;margin-top: 20%;">In imaginea din stanga putem vedea cata memorie Flash, RAM, dar si EPROM consuma programul in stadiul final</p>
                 </div>
             </div>
-            <div class="row" style="margin-top: 60px;">
-                <div class="col-md">
-                    <img src="resources/images/electrical_scheme.png" alt="Schema Electrica" style="height: 500px;width: auto;margin-left: auto;margin-right: auto;padding-left: 50px;"/>
-                </div>
-                <div class="col-md">
-                    <p style="margin-right: auto;margin-left: auto;text-align: center;margin-top:50%;padding-left: 40px;">Schema Electrica finala a Proiectului</p>
-                </div>
-            </div>
+
         </div>
 
     </div>
 </div>
-
 </body>
 </html>

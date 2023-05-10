@@ -1,0 +1,8 @@
+@font-face {
+    font-family: "gameplay";
+    src: url("http://matrix.elcom.pub.ro/~P42/resources/fonts/Gameplay.ttf") format('truetype');
+}
+@font-face {
+    font-family: led_display;
+    src: url("http://matrix.elcom.pub.ro/~P42/resources/fonts/led_display.TTF");
+}

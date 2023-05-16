@@ -157,7 +157,7 @@
                 </div>
                 <div class="col-sm" style="margin-top: 40px">
                     Placuta cu divizorul rezistiv lipit.<br>
-                    Am ales o rezistenta de Rx1=83Ω si inca una de Rx2=1kΩ. Rezultand un K=Rx1/(Rx1+Rx2)=0.07=7%.
+                    Am ales o rezistenta de Rx1=82Ω si inca una de Rx2=1kΩ. Rezultand un K=Rx1/(Rx1+Rx2)=0.07=7%.
                     Divizorul rezistiv este alimentat de la VCC din pinul 31 al AVR Atmega 164A, iar masa este pusa pe portul 32. De asemenea, conform cerintei din etapa 2 divizorul este pus pe pinul PA4.
                 </div>
             </div>
@@ -177,7 +177,7 @@
                 <div class="col-sm">
                     <div class="col-sm" style="margin-top: 40px">
                         Placuta cu cele 7 LED-uri necesare, impreuna cu lipiturile de pe spate.<br>
-                        Fiecarui LED  i se asociaza un bit de pe portul B (am ales sa folosim 7 LED-uri inloc de 8 pentru a putea aprinde un singur LED in mijloc atunci cand este detectata o suprafata plana, astfel simuland bula unui boloboc). Am limitat curentul prin LED-uri la aproximativ 15mA folosind rezistoarele R1-R8 cu valoare de 220Ω si o toleranta de +/- 1%, utilizand formula:
+                        Fiecarui LED  i se asociaza un bit de pe portul B (am ales sa folosim 7 LED-uri inloc de 8 pentru a putea aprinde un singur LED in mijloc atunci cand este detectata o suprafata plana, astfel simuland bula unui boloboc). Am limitat curentul prin LED-uri la aproximativ 15mA folosind rezistoarele Rl1-Rl7 cu valoare de 220Ω si o toleranta de +/- 1%, utilizand formula:
                         R = (Vcc-VLED)/ILED => R = (5V-2V)/15mA => R = 200 Ω
                     </div>
                 </div>

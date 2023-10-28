@@ -1,0 +1,17 @@
+/*
+ * nivela_cu_bula.c
+ *
+ * Created: 06-May-23 20:15:59
+ * Author: Flaviu
+ */
+
+#include <mega164a.h>
+
+void main(void)
+{
+while (1)
+    {
+    // Please write your application code here
+
+    }
+}

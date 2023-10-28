@@ -1,0 +1,40 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+twi_tx_index                                                                      0x0200       1
+twi_rx_index                                                                      0x0201       1
+twi_result                                                                        0x0202       1
+slave_address (twi.lib)                                                           0x0203       1
+twi_tx_buffer (twi.lib)                                                           0x0204       2
+bytes_to_tx (twi.lib)                                                             0x0206       1
+twi_rx_buffer (twi.lib)                                                           0x0207       2
+bytes_to_rx (twi.lib)                                                             0x0209       1
+twi_rx_buffer_size (twi.lib)                                                      0x020A       1
+twi_slave_rx_handler (twi.lib)                                                    0x020B       2
+twi_slave_tx_handler (twi.lib)                                                    0x020D       2
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+twi_flag                                                                          GPIOR0.0  1bit
+twi_ready                                                                         GPIOR0.1  1bit
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+switchLed                                                                         0x00089     58
+calibrateAxis                                                                     0x000C3     51
+main                                                                              0x000F6    203
+twi_master_init                                                                   0x001C1     43
+twi_master_trans                                                                  0x001EC    102
+twi_int_handler                                                                   0x00252    387
+putchar                                                                           0x003D5     10
+put_usart_G101                                                                    0x003DF     14
+_print_G101                                                                       0x003ED    296
+printf                                                                            0x00515     39
+strlen                                                                            0x0053C     12
+strlenf                                                                           0x00548     13
